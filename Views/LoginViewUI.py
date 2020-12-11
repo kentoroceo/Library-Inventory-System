@@ -74,7 +74,12 @@ class Ui_Login(object):
         self.Logo.setStyleSheet("QLabel{\n"
 "    color: white;\n"
 "    font: 25pt \"MS PGothic\";\n"
-"}")
+"}\n"
+"QFrame{\n"
+"    border-style:none;\n"
+"}\n"
+"")
+        self.Logo.setLineWidth(0)
         self.Logo.setObjectName("Logo")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.Logo)
         self.verticalLayout.setObjectName("verticalLayout")
@@ -104,70 +109,44 @@ class Ui_Login(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.LoginFrame.sizePolicy().hasHeightForWidth())
         self.LoginFrame.setSizePolicy(sizePolicy)
-        self.LoginFrame.setStyleSheet("background-color: rgb(38, 42, 54);")
-        self.LoginFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.LoginFrame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.LoginFrame.setObjectName("LoginFrame")
-        self.gridLayout_5 = QtWidgets.QGridLayout(self.LoginFrame)
-        self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout_5.setSpacing(0)
-        self.gridLayout_5.setObjectName("gridLayout_5")
-        self.LoginForm = QtWidgets.QFrame(self.LoginFrame)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.LoginForm.sizePolicy().hasHeightForWidth())
-        self.LoginForm.setSizePolicy(sizePolicy)
-        self.LoginForm.setStyleSheet("QLineEdit{\n"
-"    background-color:rgb(96, 116, 166);\n"
-"    border-color: rgb(96, 116, 166);\n"
-"    border-radius:20px;\n"
-"    color:white;\n"
-"    height: 50px;\n"
-"    width: 280px;\n"
-"    margin-bottom: 10px;\n"
-"    font-size:20px;\n"
-"    textMargins: 10px;\n"
-"    padding-left: 20px;\n"
-"    padding-right:20px;\n"
+        self.LoginFrame.setStyleSheet("QFrame{\n"
+"    border-style:none;\n"
 "}\n"
-"\n"
-"QPushButton{\n"
-"    height: 50px;\n"
-"    width: 280px;\n"
-"    background-color:rgb(96, 116, 166);\n"
-"    color:white;\n"
-"    border-color:rgb(96, 116, 166);\n"
-"    border-radius:20px;\n"
-"    padding-left: 20px;\n"
-"    padding-right:20px;\n"
-"    font-size:20px;\n"
-"}")
-        self.LoginForm.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.LoginForm.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.LoginForm.setObjectName("LoginForm")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.LoginForm)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.UsernameLineEdit = QtWidgets.QLineEdit(self.LoginForm)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+"QLineEdit {\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"")
+        self.LoginFrame.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.LoginFrame.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.LoginFrame.setLineWidth(0)
+        self.LoginFrame.setObjectName("LoginFrame")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.LoginFrame)
+        self.verticalLayout_2.setContentsMargins(50, 0, 50, 0)
+        self.verticalLayout_2.setSpacing(10)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.UsernameLineEdit = QtWidgets.QLineEdit(self.LoginFrame)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.UsernameLineEdit.sizePolicy().hasHeightForWidth())
         self.UsernameLineEdit.setSizePolicy(sizePolicy)
         self.UsernameLineEdit.setStyleSheet("")
+        self.UsernameLineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.UsernameLineEdit.setObjectName("UsernameLineEdit")
-        self.verticalLayout_3.addWidget(self.UsernameLineEdit, 0, QtCore.Qt.AlignHCenter)
-        self.PasswordLineEdit = QtWidgets.QLineEdit(self.LoginForm)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        self.verticalLayout_2.addWidget(self.UsernameLineEdit)
+        self.PasswordLineEdit = QtWidgets.QLineEdit(self.LoginFrame)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.PasswordLineEdit.sizePolicy().hasHeightForWidth())
         self.PasswordLineEdit.setSizePolicy(sizePolicy)
         self.PasswordLineEdit.setStyleSheet("")
+        self.PasswordLineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.PasswordLineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.PasswordLineEdit.setObjectName("PasswordLineEdit")
-        self.verticalLayout_3.addWidget(self.PasswordLineEdit, 0, QtCore.Qt.AlignHCenter)
-        self.LoginButton = QtWidgets.QPushButton(self.LoginForm)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        self.verticalLayout_2.addWidget(self.PasswordLineEdit)
+        self.LoginButton = QtWidgets.QPushButton(self.LoginFrame)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.LoginButton.sizePolicy().hasHeightForWidth())
@@ -176,9 +155,19 @@ class Ui_Login(object):
         self.LoginButton.setDefault(False)
         self.LoginButton.setFlat(False)
         self.LoginButton.setObjectName("LoginButton")
-        self.verticalLayout_3.addWidget(self.LoginButton, 0, QtCore.Qt.AlignHCenter)
-        self.gridLayout_5.addWidget(self.LoginForm, 0, 0, 1, 1)
-        self.horizontalLayout_2.addWidget(self.LoginFrame)
+        self.verticalLayout_2.addWidget(self.LoginButton, 0, QtCore.Qt.AlignVCenter)
+        self.label = QtWidgets.QLabel(self.LoginFrame)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy)
+        self.label.setStyleSheet("color: red;\n"
+"")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        self.verticalLayout_2.addWidget(self.label, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.horizontalLayout_2.addWidget(self.LoginFrame, 0, QtCore.Qt.AlignVCenter)
         self.gridLayout_6.addWidget(self.ColumnFrame, 0, 0, 1, 1)
         self.gridLayout.addWidget(self.LoginContainer, 0, 0, 1, 1)
 
@@ -192,6 +181,7 @@ class Ui_Login(object):
         self.UsernameLineEdit.setPlaceholderText(_translate("Login", "username"))
         self.PasswordLineEdit.setPlaceholderText(_translate("Login", "password"))
         self.LoginButton.setText(_translate("Login", "Login"))
+        self.label.setText(_translate("Login", "Invalid Username or Password"))
 
 
 if __name__ == "__main__":

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>250</width>
-    <height>393</height>
+    <height>492</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,8 +20,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">border-style:none;
-background-color:rgb(53, 57, 68);</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
@@ -65,6 +64,11 @@ background-color:rgb(53, 57, 68);</string>
       </property>
       <item>
        <widget class="QFrame" name="PhotoContainer">
+        <property name="styleSheet">
+         <string notr="true">QFrame{
+	border-style:none;
+}</string>
+        </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
         </property>
@@ -88,12 +92,14 @@ background-color:rgb(53, 57, 68);</string>
         </layout>
        </widget>
       </item>
-      <item alignment="Qt::AlignLeft|Qt::AlignTop">
+      <item>
        <widget class="QFrame" name="BookDetails">
         <property name="styleSheet">
          <string notr="true">QLabel{
 	color: white;
-	font: 10pt &quot;Maiandra GD&quot;;
+}
+QFrame {
+	border-style:none;
 }</string>
         </property>
         <property name="frameShape">
@@ -102,27 +108,154 @@ background-color:rgb(53, 57, 68);</string>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <item>
+        <layout class="QFormLayout" name="formLayout">
+         <item row="3" column="0">
+          <widget class="QLabel" name="TitleLabel">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Title: </string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
           <widget class="QLabel" name="BookTitle">
            <property name="text">
             <string>Title</string>
            </property>
           </widget>
          </item>
-         <item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="AuthorLabell">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Author: </string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
           <widget class="QLabel" name="BookAuthor">
            <property name="text">
             <string>Author</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="PublisherLabel">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Publisher: </string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLabel" name="BookPublisher">
+           <property name="text">
+            <string>Publisher</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="EditionLabel">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Edition: </string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLabel" name="BookEdition">
+           <property name="text">
+            <string>Edition</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="CategoryLabel">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Category: </string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QLabel" name="BookCategory">
+           <property name="text">
+            <string>Category</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="PublishedDateLabel">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Published Date: </string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QLabel" name="BookPublisherDate">
+           <property name="text">
+            <string>BookPublishedDate</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="0">
+          <widget class="QLabel" name="StockLabel">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Stock: </string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="QLabel" name="BookQuantity">
+           <property name="text">
+            <string>BookQuantity</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="BookId">
+           <property name="text">
+            <string>TextLabel</string>
            </property>
           </widget>
          </item>
@@ -132,19 +265,8 @@ background-color:rgb(53, 57, 68);</string>
       <item>
        <widget class="QFrame" name="ButtonContainer">
         <property name="styleSheet">
-         <string notr="true">QPushButton{
-	height: 30px;
-	background-color:rgb(96, 116, 166);
-	color:white;
-	border-color:rgb(96, 116, 166);
-	border-radius:15px;
-	padding-left: 20px;
-	padding-right:20px;
-	font-size:20px;
-}
-
-QPushButton:hover {
-	background-color: rgb(38, 42, 54);
+         <string notr="true">QFrame{
+	border-style:none;
 }</string>
         </property>
         <property name="frameShape">

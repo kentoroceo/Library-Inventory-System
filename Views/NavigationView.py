@@ -2,45 +2,90 @@ from PyQt5 import QtCore
 from PyQt5.QtWidgets import QMainWindow, QWidget
 from PyQt5.QtCore import pyqtSlot, QPropertyAnimation 
 from Views.NavigationViewUI import Ui_Navigation
-
+from Controllers.LibraryController import LibraryController
+from Controllers.UsersController import UsersController
+from Controllers.IssuanceController import IssuanceController
+from Views.IssuedBooksView import IssuedBooksView
+from Views.LibraryView import LibraryView
+from Views.UsersView import UsersView
+from Model.UserModel import UserModel
+from Model.IssuanceModel import IssuanceModel
+from Views.AddBookViewUI import Ui_AddBook
+from Model.BookModel import BookModel
+from Controllers.BookController import BookController
+from Views.AddBookView import AddBookView
+from Model.ReturnedModel import ReturnedModel
+from Controllers.ReturnController import ReturnController
+from Views.ReturnedBooksView import ReturnedBooksView
+#NavigationView class communicates with UI that connects to a controller to perform backend operations
 class NavigationView(QWidget):
-    def __init__(self, library_view, model, navigation_controller):
+    def __init__(self):
         super().__init__()
 
-        self._model = model
-        self._navigation_controller = navigation_controller
         self._ui = Ui_Navigation()
         self._ui.setupUi(self)
-        self._library_view = library_view
-        self._ui.stackedWidget.addWidget(self._library_view)
+        
+        self._userModel = UserModel()
+        self._usersController = UsersController(self._userModel)
+        self._usersView = UsersView(self._userModel, self._usersController)
+        self._ui.stackedWidget.addWidget(self._usersView)
 
+        self._returnedModel = ReturnedModel()
+        self._returned_controller = ReturnController(self._returnedModel)
+        self._returnedBooksView = ReturnedBooksView(self._returned_controller)
+        self._ui.stackedWidget.addWidget(self._returnedBooksView)
+
+        self._issuanceModel = IssuanceModel()
+        self._issuanceController = IssuanceController(self._issuanceModel)
+        self._issuanceView = IssuedBooksView(self._issuanceController, self._returned_controller)
+        self._ui.stackedWidget.addWidget(self._issuanceView)
+
+        self._bookModel = BookModel()
+        self._bookController = BookController(self._bookModel)
+        self._addBookView = AddBookView(self._bookModel, self._bookController)
+        self._ui.stackedWidget.addWidget(self._addBookView)
+
+        self._libraryController = LibraryController()
+        self._libraryView = LibraryView(self._libraryController, self._issuanceController, self._bookController)
+        self._ui.stackedWidget.addWidget(self._libraryView)
+        self._ui.stackedWidget.setCurrentWidget(self._libraryView)
+        self._libraryView.InitializeLibrary()
+        
+    
         ## TOGGLE/BURGUER MENU
-        ########################################################################
-        self._ui.Btn_Toggle.clicked.connect(lambda: self.toggleMenu(250, True))
+        self._ui.Btn_Toggle.clicked.connect(lambda: self.toggleMenu(70, True))
 
         ## PAGES
-        ########################################################################
+        self._ui.library_page.clicked.connect(lambda: self._ui.stackedWidget.setCurrentWidget(self._libraryView))
+        self._ui.library_page.clicked.connect(self._libraryView.InitializeLibrary)
 
-        # PAGE 1
-        self._ui.btn_page_1.clicked.connect(lambda: self._ui.stackedWidget.setCurrentWidget(self._library_view))
+        self._ui.returned_page.clicked.connect(lambda: self._ui.stackedWidget.setCurrentWidget(self._returnedBooksView))
+        self._ui.returned_page.clicked.connect(self._returnedBooksView.InitializeReturnedBooks)
 
-        # PAGE 2
-        self._ui.btn_page_2.clicked.connect(lambda: self._ui.stackedWidget.setCurrentWidget(self._ui.page_2))
+        self._ui.issued_books_page.clicked.connect(lambda: self._ui.stackedWidget.setCurrentWidget(self._issuanceView))
+        self._ui.issued_books_page.clicked.connect(self._issuanceView.InitializeIssuedBooks)
 
-        # PAGE 3
-        self._ui.btn_page_3.clicked.connect(lambda: self._ui.stackedWidget.setCurrentWidget(self._ui.page_3))
+        self._ui.users_page.clicked.connect(lambda: self._ui.stackedWidget.setCurrentWidget(self._usersView))
 
-    def toggleMenu(self, maxWidth, enable):
+    def toggleMenu(self, minWidth, enable):
         if enable:
 
             width = self._ui.frame_left_menu.width()
-            maxExtend = maxWidth
-            standard = 70
+            minExtend = minWidth
+            standard = 250
 
-            if width == 70:
-                widthExtended = maxExtend
+            if width == 250:
+                widthExtended = minExtend
+                self._ui.library_page.setText("")
+                self._ui.issued_books_page.setText("")
+                self._ui.returned_page.setText("")
+                self._ui.users_page.setText("")
             else:
                 widthExtended = standard
+                self._ui.library_page.setText("       Library          ")
+                self._ui.issued_books_page.setText("       Issued Books")
+                self._ui.returned_page.setText("       Returned      ")
+                self._ui.users_page.setText("      Users             ")
 
             self.animation = QPropertyAnimation(self._ui.frame_left_menu, b"minimumWidth")
             self.animation.setDuration(400)
@@ -48,3 +93,6 @@ class NavigationView(QWidget):
             self.animation.setEndValue(widthExtended)
             self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
             self.animation.start()
+            
+
+        

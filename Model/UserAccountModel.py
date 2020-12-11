@@ -1,5 +1,6 @@
 from PyQt5.QtCore import QObject, pyqtSignal
 
+#UserAccountModel contains the properties of the user account like username and password
 class Model(QObject):
     username_changed = pyqtSignal(str)
     password_changed = pyqtSignal(str)

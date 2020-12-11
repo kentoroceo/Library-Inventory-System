@@ -4,12 +4,11 @@ from Views.MainViewUI import Ui_Main
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+#MainView class communicates with UI that connects to a controller to perform backend operations
 class MainView(QMainWindow):
-    def __init__(self, model, main_controller):
+    def __init__(self):
         super().__init__()
 
-        self._model = model
-        self._main_controller = main_controller
         self._ui = Ui_Main()
         self._ui.setupUi(self)
         

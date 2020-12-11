@@ -21,7 +21,10 @@ class Ui_Navigation(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.Top_Bar = QtWidgets.QFrame(Navigation)
         self.Top_Bar.setMaximumSize(QtCore.QSize(16777215, 50))
-        self.Top_Bar.setStyleSheet("background-color: rgb(35, 35, 35);")
+        self.Top_Bar.setStyleSheet("QFrame{\n"
+"    border-style:none;\n"
+"}\n"
+"")
         self.Top_Bar.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Top_Bar.setFrameShadow(QtWidgets.QFrame.Raised)
         self.Top_Bar.setObjectName("Top_Bar")
@@ -31,14 +34,7 @@ class Ui_Navigation(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.frame_toggle = QtWidgets.QFrame(self.Top_Bar)
         self.frame_toggle.setMaximumSize(QtCore.QSize(70, 50))
-        self.frame_toggle.setStyleSheet("QPushButton {\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(38, 42, 54);\n"
-"    border: 0px solid;\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(53, 57, 68);\n"
-"}")
+        self.frame_toggle.setStyleSheet("background-color: rgb(53, 57, 68);")
         self.frame_toggle.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_toggle.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_toggle.setObjectName("frame_toggle")
@@ -52,7 +48,15 @@ class Ui_Navigation(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.Btn_Toggle.sizePolicy().hasHeightForWidth())
         self.Btn_Toggle.setSizePolicy(sizePolicy)
-        self.Btn_Toggle.setStyleSheet("")
+        self.Btn_Toggle.setStyleSheet("QPushButton {\n"
+"    border: 0px solid;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(38, 42, 54);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color: rgb(38, 42, 54, 50%);\n"
+"}")
         self.Btn_Toggle.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("Resources/Images/Menu.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -62,13 +66,16 @@ class Ui_Navigation(object):
         self.verticalLayout_2.addWidget(self.Btn_Toggle)
         self.horizontalLayout.addWidget(self.frame_toggle)
         self.frame_top = QtWidgets.QFrame(self.Top_Bar)
-        self.frame_top.setStyleSheet("background-color: rgb(38, 42, 54);")
+        self.frame_top.setStyleSheet("background-color: rgb(53, 57, 68);")
         self.frame_top.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_top.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_top.setObjectName("frame_top")
         self.horizontalLayout.addWidget(self.frame_top)
         self.verticalLayout.addWidget(self.Top_Bar)
         self.Content = QtWidgets.QFrame(Navigation)
+        self.Content.setStyleSheet("QFrame{\n"
+"    border-style:none;\n"
+"}")
         self.Content.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Content.setFrameShadow(QtWidgets.QFrame.Raised)
         self.Content.setObjectName("Content")
@@ -77,9 +84,9 @@ class Ui_Navigation(object):
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.frame_left_menu = QtWidgets.QFrame(self.Content)
-        self.frame_left_menu.setMinimumSize(QtCore.QSize(70, 0))
+        self.frame_left_menu.setMinimumSize(QtCore.QSize(250, 0))
         self.frame_left_menu.setMaximumSize(QtCore.QSize(70, 16777215))
-        self.frame_left_menu.setStyleSheet("background-color: rgb(38, 42, 54);")
+        self.frame_left_menu.setStyleSheet("background-color: rgb(53, 57, 68);")
         self.frame_left_menu.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_left_menu.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_left_menu.setObjectName("frame_left_menu")
@@ -90,11 +97,16 @@ class Ui_Navigation(object):
         self.frame_top_menus = QtWidgets.QFrame(self.frame_left_menu)
         self.frame_top_menus.setStyleSheet("QPushButton {\n"
 "    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(38, 42, 54);\n"
 "    border: 0px solid;\n"
+"    height: 60px;\n"
+"    text-align: center;\n"
+"    font: 12pt \"Segoe UI\";\n"
 "}\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(53, 57, 68);\n"
+"    background-color: rgb(38, 42, 54);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color: rgb(38, 42, 54, 50%);\n"
 "}")
         self.frame_top_menus.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_top_menus.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -103,25 +115,49 @@ class Ui_Navigation(object):
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.btn_page_1 = QtWidgets.QPushButton(self.frame_top_menus)
-        self.btn_page_1.setMinimumSize(QtCore.QSize(0, 40))
-        self.btn_page_1.setStyleSheet("")
-        self.btn_page_1.setObjectName("btn_page_1")
-        self.verticalLayout_4.addWidget(self.btn_page_1)
-        self.btn_page_2 = QtWidgets.QPushButton(self.frame_top_menus)
-        self.btn_page_2.setMinimumSize(QtCore.QSize(0, 40))
-        self.btn_page_2.setStyleSheet("")
-        self.btn_page_2.setObjectName("btn_page_2")
-        self.verticalLayout_4.addWidget(self.btn_page_2)
-        self.btn_page_3 = QtWidgets.QPushButton(self.frame_top_menus)
-        self.btn_page_3.setMinimumSize(QtCore.QSize(0, 40))
-        self.btn_page_3.setStyleSheet("")
-        self.btn_page_3.setObjectName("btn_page_3")
-        self.verticalLayout_4.addWidget(self.btn_page_3)
+        self.library_page = QtWidgets.QPushButton(self.frame_top_menus)
+        self.library_page.setMinimumSize(QtCore.QSize(0, 40))
+        self.library_page.setStyleSheet("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("Resources/Images/Bookshelf.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.library_page.setIcon(icon1)
+        self.library_page.setIconSize(QtCore.QSize(30, 30))
+        self.library_page.setObjectName("library_page")
+        self.verticalLayout_4.addWidget(self.library_page)
+        self.returned_page = QtWidgets.QPushButton(self.frame_top_menus)
+        self.returned_page.setMinimumSize(QtCore.QSize(0, 40))
+        self.returned_page.setStyleSheet("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("Resources/Images/Return.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.returned_page.setIcon(icon2)
+        self.returned_page.setIconSize(QtCore.QSize(30, 30))
+        self.returned_page.setObjectName("returned_page")
+        self.verticalLayout_4.addWidget(self.returned_page)
+        self.issued_books_page = QtWidgets.QPushButton(self.frame_top_menus)
+        self.issued_books_page.setMinimumSize(QtCore.QSize(0, 40))
+        self.issued_books_page.setStyleSheet("")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("Resources/Images/Borrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.issued_books_page.setIcon(icon3)
+        self.issued_books_page.setIconSize(QtCore.QSize(30, 30))
+        self.issued_books_page.setObjectName("issued_books_page")
+        self.verticalLayout_4.addWidget(self.issued_books_page)
+        self.users_page = QtWidgets.QPushButton(self.frame_top_menus)
+        self.users_page.setMinimumSize(QtCore.QSize(0, 40))
+        self.users_page.setStyleSheet("")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("Resources/Images/Users.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.users_page.setIcon(icon4)
+        self.users_page.setIconSize(QtCore.QSize(30, 30))
+        self.users_page.setObjectName("users_page")
+        self.verticalLayout_4.addWidget(self.users_page)
         self.verticalLayout_3.addWidget(self.frame_top_menus, 0, QtCore.Qt.AlignTop)
         self.horizontalLayout_2.addWidget(self.frame_left_menu)
         self.frame_pages = QtWidgets.QFrame(self.Content)
-        self.frame_pages.setStyleSheet("border-style: none;")
+        self.frame_pages.setStyleSheet("QFrame{\n"
+"    border-style:none;\n"
+"}\n"
+"")
         self.frame_pages.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_pages.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_pages.setObjectName("frame_pages")
@@ -130,7 +166,7 @@ class Ui_Navigation(object):
         self.verticalLayout_5.setSpacing(0)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.stackedWidget = QtWidgets.QStackedWidget(self.frame_pages)
-        self.stackedWidget.setStyleSheet("background-color: rgb(53, 57, 68);")
+        self.stackedWidget.setStyleSheet("")
         self.stackedWidget.setObjectName("stackedWidget")
         self.page_1 = QtWidgets.QWidget()
         self.page_1.setObjectName("page_1")
@@ -171,23 +207,70 @@ class Ui_Navigation(object):
         self.label.setObjectName("label")
         self.verticalLayout_8.addWidget(self.label)
         self.stackedWidget.addWidget(self.page_3)
+        self.page_4 = QtWidgets.QWidget()
+        self.page_4.setStyleSheet("QLineEdit{\n"
+"    background-color:rgb(96, 116, 166);\n"
+"    border-color: rgb(96, 116, 166);\n"
+"    border-radius:20px;\n"
+"    color:white;\n"
+"    height: 50px;\n"
+"    width: 280px;\n"
+"    margin-bottom: 10px;\n"
+"    font-size:20px;\n"
+"    textMargins: 10px;\n"
+"    padding-left: 20px;\n"
+"    padding-right:20px;\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"    height: 50px;\n"
+"    width: 280px;\n"
+"    background-color:rgb(96, 116, 166);\n"
+"    color:white;\n"
+"    border-color:rgb(96, 116, 166);\n"
+"    border-radius:20px;\n"
+"    padding-left: 20px;\n"
+"    padding-right:20px;\n"
+"    font-size:20px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:rgb(96, 116, 166, 50%);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"  background-color: rgb(53, 57, 68);\n"
+"}")
+        self.page_4.setObjectName("page_4")
+        self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.page_4)
+        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.label_4 = QtWidgets.QLabel(self.page_4)
+        font = QtGui.QFont()
+        font.setPointSize(40)
+        self.label_4.setFont(font)
+        self.label_4.setStyleSheet("color: #FFF;")
+        self.label_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout_9.addWidget(self.label_4)
+        self.stackedWidget.addWidget(self.page_4)
         self.verticalLayout_5.addWidget(self.stackedWidget)
         self.horizontalLayout_2.addWidget(self.frame_pages)
         self.verticalLayout.addWidget(self.Content)
 
         self.retranslateUi(Navigation)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Navigation)
 
     def retranslateUi(self, Navigation):
         _translate = QtCore.QCoreApplication.translate
         Navigation.setWindowTitle(_translate("Navigation", "Form"))
-        self.btn_page_1.setText(_translate("Navigation", "Library"))
-        self.btn_page_2.setText(_translate("Navigation", "Borrowed"))
-        self.btn_page_3.setText(_translate("Navigation", "Returned"))
+        self.library_page.setText(_translate("Navigation", "       Library          "))
+        self.returned_page.setText(_translate("Navigation", "       Returned      "))
+        self.issued_books_page.setText(_translate("Navigation", "       Issued Books"))
+        self.users_page.setText(_translate("Navigation", "      Users             "))
         self.label_1.setText(_translate("Navigation", "PAGE 1"))
         self.label_2.setText(_translate("Navigation", "PAGE 2"))
         self.label.setText(_translate("Navigation", "PAGE 3"))
+        self.label_4.setText(_translate("Navigation", "PAGE 4"))
 
 
 if __name__ == "__main__":

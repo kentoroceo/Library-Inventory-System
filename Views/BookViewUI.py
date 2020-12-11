@@ -14,14 +14,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Book(object):
     def setupUi(self, Book):
         Book.setObjectName("Book")
-        Book.resize(250, 393)
+        Book.resize(250, 492)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(Book.sizePolicy().hasHeightForWidth())
         Book.setSizePolicy(sizePolicy)
-        Book.setStyleSheet("border-style:none;\n"
-"background-color:rgb(53, 57, 68);")
+        Book.setStyleSheet("")
         self.gridLayout = QtWidgets.QGridLayout(Book)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setSpacing(0)
@@ -35,6 +34,9 @@ class Ui_Book(object):
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.PhotoContainer = QtWidgets.QFrame(self.frame)
+        self.PhotoContainer.setStyleSheet("QFrame{\n"
+"    border-style:none;\n"
+"}")
         self.PhotoContainer.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.PhotoContainer.setFrameShadow(QtWidgets.QFrame.Raised)
         self.PhotoContainer.setObjectName("PhotoContainer")
@@ -50,35 +52,93 @@ class Ui_Book(object):
         self.BookDetails = QtWidgets.QFrame(self.frame)
         self.BookDetails.setStyleSheet("QLabel{\n"
 "    color: white;\n"
-"    font: 10pt \"Maiandra GD\";\n"
+"}\n"
+"QFrame {\n"
+"    border-style:none;\n"
 "}")
         self.BookDetails.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.BookDetails.setFrameShadow(QtWidgets.QFrame.Raised)
         self.BookDetails.setObjectName("BookDetails")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.BookDetails)
-        self.verticalLayout_2.setContentsMargins(0, 0, 0, -1)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.formLayout = QtWidgets.QFormLayout(self.BookDetails)
+        self.formLayout.setObjectName("formLayout")
+        self.TitleLabel = QtWidgets.QLabel(self.BookDetails)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.TitleLabel.setFont(font)
+        self.TitleLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.TitleLabel.setObjectName("TitleLabel")
+        self.formLayout.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.TitleLabel)
         self.BookTitle = QtWidgets.QLabel(self.BookDetails)
         self.BookTitle.setObjectName("BookTitle")
-        self.verticalLayout_2.addWidget(self.BookTitle)
+        self.formLayout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.BookTitle)
+        self.AuthorLabell = QtWidgets.QLabel(self.BookDetails)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.AuthorLabell.setFont(font)
+        self.AuthorLabell.setObjectName("AuthorLabell")
+        self.formLayout.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.AuthorLabell)
         self.BookAuthor = QtWidgets.QLabel(self.BookDetails)
         self.BookAuthor.setObjectName("BookAuthor")
-        self.verticalLayout_2.addWidget(self.BookAuthor)
-        self.verticalLayout.addWidget(self.BookDetails, 0, QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.BookAuthor)
+        self.PublisherLabel = QtWidgets.QLabel(self.BookDetails)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.PublisherLabel.setFont(font)
+        self.PublisherLabel.setObjectName("PublisherLabel")
+        self.formLayout.setWidget(5, QtWidgets.QFormLayout.LabelRole, self.PublisherLabel)
+        self.BookPublisher = QtWidgets.QLabel(self.BookDetails)
+        self.BookPublisher.setObjectName("BookPublisher")
+        self.formLayout.setWidget(5, QtWidgets.QFormLayout.FieldRole, self.BookPublisher)
+        self.EditionLabel = QtWidgets.QLabel(self.BookDetails)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.EditionLabel.setFont(font)
+        self.EditionLabel.setObjectName("EditionLabel")
+        self.formLayout.setWidget(6, QtWidgets.QFormLayout.LabelRole, self.EditionLabel)
+        self.BookEdition = QtWidgets.QLabel(self.BookDetails)
+        self.BookEdition.setObjectName("BookEdition")
+        self.formLayout.setWidget(6, QtWidgets.QFormLayout.FieldRole, self.BookEdition)
+        self.CategoryLabel = QtWidgets.QLabel(self.BookDetails)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.CategoryLabel.setFont(font)
+        self.CategoryLabel.setObjectName("CategoryLabel")
+        self.formLayout.setWidget(7, QtWidgets.QFormLayout.LabelRole, self.CategoryLabel)
+        self.BookCategory = QtWidgets.QLabel(self.BookDetails)
+        self.BookCategory.setObjectName("BookCategory")
+        self.formLayout.setWidget(7, QtWidgets.QFormLayout.FieldRole, self.BookCategory)
+        self.PublishedDateLabel = QtWidgets.QLabel(self.BookDetails)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.PublishedDateLabel.setFont(font)
+        self.PublishedDateLabel.setObjectName("PublishedDateLabel")
+        self.formLayout.setWidget(8, QtWidgets.QFormLayout.LabelRole, self.PublishedDateLabel)
+        self.BookPublisherDate = QtWidgets.QLabel(self.BookDetails)
+        self.BookPublisherDate.setObjectName("BookPublisherDate")
+        self.formLayout.setWidget(8, QtWidgets.QFormLayout.FieldRole, self.BookPublisherDate)
+        self.StockLabel = QtWidgets.QLabel(self.BookDetails)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.StockLabel.setFont(font)
+        self.StockLabel.setObjectName("StockLabel")
+        self.formLayout.setWidget(9, QtWidgets.QFormLayout.LabelRole, self.StockLabel)
+        self.BookQuantity = QtWidgets.QLabel(self.BookDetails)
+        self.BookQuantity.setObjectName("BookQuantity")
+        self.formLayout.setWidget(9, QtWidgets.QFormLayout.FieldRole, self.BookQuantity)
+        self.BookId = QtWidgets.QLabel(self.BookDetails)
+        self.BookId.setObjectName("BookId")
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.BookId)
+        self.verticalLayout.addWidget(self.BookDetails)
         self.ButtonContainer = QtWidgets.QFrame(self.frame)
-        self.ButtonContainer.setStyleSheet("QPushButton{\n"
-"    height: 30px;\n"
-"    background-color:rgb(96, 116, 166);\n"
-"    color:white;\n"
-"    border-color:rgb(96, 116, 166);\n"
-"    border-radius:15px;\n"
-"    padding-left: 20px;\n"
-"    padding-right:20px;\n"
-"    font-size:20px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(38, 42, 54);\n"
+        self.ButtonContainer.setStyleSheet("QFrame{\n"
+"    border-style:none;\n"
 "}")
         self.ButtonContainer.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.ButtonContainer.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -100,8 +160,21 @@ class Ui_Book(object):
     def retranslateUi(self, Book):
         _translate = QtCore.QCoreApplication.translate
         Book.setWindowTitle(_translate("Book", "Form"))
+        self.TitleLabel.setText(_translate("Book", "Title: "))
         self.BookTitle.setText(_translate("Book", "Title"))
+        self.AuthorLabell.setText(_translate("Book", "Author: "))
         self.BookAuthor.setText(_translate("Book", "Author"))
+        self.PublisherLabel.setText(_translate("Book", "Publisher: "))
+        self.BookPublisher.setText(_translate("Book", "Publisher"))
+        self.EditionLabel.setText(_translate("Book", "Edition: "))
+        self.BookEdition.setText(_translate("Book", "Edition"))
+        self.CategoryLabel.setText(_translate("Book", "Category: "))
+        self.BookCategory.setText(_translate("Book", "Category"))
+        self.PublishedDateLabel.setText(_translate("Book", "Published Date: "))
+        self.BookPublisherDate.setText(_translate("Book", "BookPublishedDate"))
+        self.StockLabel.setText(_translate("Book", "Stock: "))
+        self.BookQuantity.setText(_translate("Book", "BookQuantity"))
+        self.BookId.setText(_translate("Book", "TextLabel"))
         self.BorrowButton.setText(_translate("Book", "Borrow"))
 
 
